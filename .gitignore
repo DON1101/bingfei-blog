@@ -10,6 +10,12 @@ _test
 # Import package from Github
 github.com/*
 
+# npm modules
+node_modules/*
+
+# npm log
+npm-debug.log
+
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
@@ -25,6 +31,7 @@ _testmain.go
 *.exe
 *.test
 *.prof
+.DS_Store
 
 # Project related
 main

@@ -1,6 +1,6 @@
 package main
 
-var DB_NAME = "bingfei-blog"
+var DB_NAME = "bingfei_blog"
 var DB_USER = "postgres"
 var DB_PASSWORD = ""
 var DB_HOST = "127.0.0.1"

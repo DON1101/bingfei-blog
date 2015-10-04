@@ -7,7 +7,7 @@ import (
     _ "github.com/lib/pq"
 
     "controllers"
-    // _ "models"
+    _ "models"
 )
 
 func init() {
@@ -24,7 +24,7 @@ func init() {
 }
 
 func main() {
-    // SyncDB()
+    SyncDB()
 
     // Serve eyes images through this url /media
     // A soft link between /media and anywhere you want to store the images.
