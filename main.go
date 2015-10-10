@@ -27,9 +27,7 @@ func init() {
 func main() {
     SyncDB()
 
-    // Serve eyes images through this url /media
-    // A soft link between /media and anywhere you want to store the images.
-    beego.SetStaticPath("/media","media")
+    beego.SetStaticPath("/site_media/static/","static/dist/")
 
     beego.Router("/", &controllers.IndexController{})
     beego.Router("/article/list/", &article.ArticleListController{})
