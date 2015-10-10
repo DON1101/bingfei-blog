@@ -38,4 +38,5 @@ _testmain.go
 
 # Project related
 main
+src
 local_settings.go

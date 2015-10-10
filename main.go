@@ -7,6 +7,7 @@ import (
     _ "github.com/lib/pq"
 
     "controllers"
+    "controllers/article"
     _ "models"
 )
 
@@ -31,6 +32,8 @@ func main() {
     beego.SetStaticPath("/media","media")
 
     beego.Router("/", &controllers.IndexController{})
+    beego.Router("/article/list/", &article.ArticleListController{})
+
     beego.Run()
 }
 
