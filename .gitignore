@@ -16,6 +16,9 @@ node_modules/*
 # npm log
 npm-debug.log
 
+# static dist
+dist/
+
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out

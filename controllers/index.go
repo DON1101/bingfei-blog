@@ -9,5 +9,5 @@ type IndexController struct {
 }
 
 func (this *IndexController) Get() {
-    this.TplNames = "index.tpl"
+    this.TplNames = "index.html"
 }
