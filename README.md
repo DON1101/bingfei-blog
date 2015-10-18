@@ -103,7 +103,7 @@ go get github.com/astaxie/beego/orm
 
 **Run from Beego**
 ```
-bee run
+bee run -e=github.com
 ```
 
 ## Static package management

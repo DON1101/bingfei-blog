@@ -19,7 +19,7 @@ func TestUser(t *testing.T) {
 
     user := new(models.User)
     user.Profile = profile
-    user.Name = "guojing"
+    user.UserName = "guojing"
 
     fmt.Println(o.Insert(profile))
     fmt.Println(o.Insert(user))
