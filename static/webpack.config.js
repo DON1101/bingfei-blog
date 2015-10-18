@@ -43,7 +43,7 @@ module.exports = {
         new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
         new ExtractTextPlugin("css/site.css?[hash]"),
         new HtmlWebpackPlugin({
-            filename: projectTemplatesRoot + "_styles.html",
+            filename: projectTemplatesRoot + "common/_styles.html",
             templateContent: function(templateParams, compilation) {
                 var link = "";
                 for (var css in templateParams.htmlWebpackPlugin.files.css) {
@@ -53,7 +53,7 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            filename: projectTemplatesRoot + "_scripts.html",
+            filename: projectTemplatesRoot + "common/_scripts.html",
             templateContent: function(templateParams, compilation) {
                 var script = "";
                 for (var js in templateParams.htmlWebpackPlugin.files.js) {

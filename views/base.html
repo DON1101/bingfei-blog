@@ -7,14 +7,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         
-        {{ template "style" . }}
+        {{ template "common/_styles.html" . }}
     </head>
     <body>
+        <div class="bingfei-header">
+            {{ template "common/_header.html" . }}
+        </div>
 
-        <div class="container">
+        <div class="bingfei-container">
             {{ template "content" . }}
         </div>
 
-        {{ template "script" . }}
+        <div class="bingfei-footer">
+            {{ template "common/_footer.html" . }}
+        </div>
+        {{ template "common/_scripts.html" . }}
     </body>
 </html>

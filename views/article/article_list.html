@@ -1,13 +1,23 @@
-{{ template "base.html" }}
-
-{{ define "style" }}
-    {{ template "_styles.html" }}
-{{ end }}
+{{ template "base.html" . }}
 
 {{ define "content" }}
-{{ .article_num }}
-{{ end }}
+<div class="container">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Article List</div>
 
-{{ define "script" }}
-    {{ template "_scripts.html" }}
+        <div class="loading" ng-show="taskListLoading">
+          <div class="ball1"></div>
+        </div>
+        <!-- Table -->
+        <table class="table">
+            {{ range $key, $article := .articles }}
+            <tr class="clickable">
+                <td>{{ $article.Title }}</td>
+            </tr>
+            {{ end }}
+        </table>
+
+    </div>
+</div>
 {{ end }}
