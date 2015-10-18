@@ -110,6 +110,16 @@ bee run -e=github.com
 **Initialization**
 ```
 npm install webpack-dev-server
+npm install
+```
+
+**Build/Watch**
+```
+npm run build
+```
+OR
+```
+npm run watch
 ```
 
 ## Unit test
