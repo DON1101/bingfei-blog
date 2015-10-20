@@ -3,11 +3,13 @@ package main
 import (
     "fmt"
     "github.com/astaxie/beego"
+    "github.com/astaxie/beego/plugins/auth"
     "github.com/astaxie/beego/orm"
     _ "github.com/lib/pq"
 
     "controllers"
     "controllers/article"
+    bingfei_auth "controllers/auth"
     _ "models"
 )
 
@@ -30,8 +32,11 @@ func main() {
     beego.SetStaticPath("/site_media/static/","static/dist/")
 
     beego.Router("/", &controllers.IndexController{})
-    beego.Router("/article/list/", &article.ArticleListController{})
+    beego.Router("/article/list/", &article.ArticleController{}, "get:ArticleList")
+    beego.Router("/article/details/:article_id/", &article.ArticleController{}, "get:ArticleDetails")
 
+    authPlugin := auth.NewBasicAuthenticator(bingfei_auth.SecretAuth, "Authorization Required")
+    beego.InsertFilter("*", beego.BeforeRouter, authPlugin)
     beego.Run()
 }
 
