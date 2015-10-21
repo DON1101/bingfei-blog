@@ -3,13 +3,12 @@ package main
 import (
     "fmt"
     "github.com/astaxie/beego"
-    "github.com/astaxie/beego/plugins/auth"
     "github.com/astaxie/beego/orm"
     _ "github.com/lib/pq"
 
     "controllers"
     "controllers/article"
-    bingfei_auth "controllers/auth"
+    "controllers/auth"
     _ "models"
 )
 
@@ -29,14 +28,15 @@ func init() {
 func main() {
     SyncDB()
 
+    beego.SessionOn = true
+
     beego.SetStaticPath("/site_media/static/","static/dist/")
 
     beego.Router("/", &controllers.IndexController{})
     beego.Router("/article/list/", &article.ArticleController{}, "get:ArticleList")
     beego.Router("/article/details/:article_id/", &article.ArticleController{}, "get:ArticleDetails")
+    beego.Router("/login", &auth.AuthController{}, "get:Login")
 
-    authPlugin := auth.NewBasicAuthenticator(bingfei_auth.SecretAuth, "Authorization Required")
-    beego.InsertFilter("*", beego.BeforeRouter, authPlugin)
     beego.Run()
 }
 
