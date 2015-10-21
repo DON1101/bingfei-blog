@@ -7,7 +7,8 @@ import (
     _ "github.com/lib/pq"
 
     "controllers"
-    "controllers/article"
+    "controllers/normal"
+    "controllers/admin"
     "controllers/auth"
     _ "models"
 )
@@ -32,10 +33,14 @@ func main() {
 
     beego.SetStaticPath("/site_media/static/","static/dist/")
 
+    // Normal user
     beego.Router("/", &controllers.IndexController{})
-    beego.Router("/article/list/", &article.ArticleController{}, "get:ArticleList")
-    beego.Router("/article/details/:article_id/", &article.ArticleController{}, "get:ArticleDetails")
-    beego.Router("/login", &auth.AuthController{}, "get:Login")
+    beego.Router("/article/list/", &normal.ArticleController{}, "get:ArticleList")
+    beego.Router("/article/details/:article_id/", &normal.ArticleController{}, "get:ArticleDetails")
+    beego.Router("/login", &auth.AuthController{}, "get:LoginGet;post:LoginPost")
+
+    // Sys admin
+    beego.Router("/admin/article/list/", &admin.ArticleAdminController{}, "get:ArticleList")
 
     beego.Run()
 }
